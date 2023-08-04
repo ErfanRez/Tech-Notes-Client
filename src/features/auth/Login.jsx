@@ -1,14 +1,15 @@
 import { useRef, useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-
 import { useDispatch } from 'react-redux'
 import { setCredentials } from './authSlice'
 import { useLoginMutation } from './authApiSlice'
-import { PulseLoader } from 'react-spinners'
-
 import usePersist from '../../hooks/usePersist'
+import useTitle from '../../hooks/useTitle'
+import PulseLoader from 'react-spinners/PulseLoader'
 
 const Login = () => {
+    useTitle('Employee Login')
+
     const userRef = useRef()
     const errRef = useRef()
     const [username, setUsername] = useState('')
@@ -58,7 +59,7 @@ const Login = () => {
 
     const errClass = errMsg ? "errmsg" : "offscreen"
 
-    if (isLoading) return <p><PulseLoader color={"#FFF"} /></p>
+    if (isLoading) return <PulseLoader color={"#FFF"} />
 
     const content = (
         <section className="public">
