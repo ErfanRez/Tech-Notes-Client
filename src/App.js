@@ -1,37 +1,26 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Layout from "./components/Layout";
-import Public from "./components/Public";
-import Login from "./features/auth/Login"
-import DashLayout from "./components/DashLayout";
-import Welcome from "./features/auth/Welcome";
-import NotesList from "./features/notes/NotesList";
-import UsersList from "./features/users/UsersList";
-import { Provider } from 'react-redux';
-import { store } from './app/store';
-import EditUser from "./features/users/EditUser";
-import NewUserForm from "./features/users/NewUserForm"
-import NewNote from "./features/notes/NewNote";
-import EditNote from "./features/notes/EditNote";
-import Prefetch from "./features/auth/Prefetch"
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Public from './components/Public'
+import Login from './features/auth/Login';
+import DashLayout from './components/DashLayout'
+import Welcome from './features/auth/Welcome'
+import NotesList from './features/notes/NotesList'
+import UsersList from './features/users/UsersList'
+import EditUser from './features/users/EditUser'
+import NewUserForm from './features/users/NewUserForm'
+import EditNote from './features/notes/EditNote'
+import NewNote from './features/notes/NewNote'
+import Prefetch from './features/auth/Prefetch'
 import PersistLogin from './features/auth/PersistLogin'
-import { ROLES } from "./config/roles";
-import RequireAuth from "./features/auth/RequireAuth";
-import useTitle from "./hooks/useTitle";
-
-
-
-
-
+import RequireAuth from './features/auth/RequireAuth'
+import { ROLES } from './config/roles'
+import useTitle from './hooks/useTitle';
 
 function App() {
-
-  useTitle('Tech Notes')
+  useTitle('Dan D. Repairs')
 
   return (
-    <Provider store={store} >
-
-      <BrowserRouter >
-      <Routes>
+    <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
         <Route index element={<Public />} />
@@ -65,10 +54,7 @@ function App() {
         </Route>{/* End Protected Routes */}
 
       </Route>
-    </Routes>
-    </BrowserRouter>
-    
-    </Provider>
+    </Routes >
   );
 }
 
